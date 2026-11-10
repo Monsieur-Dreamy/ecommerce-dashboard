@@ -9,6 +9,12 @@ streamlit run app.py
 ```
 Đặt file `ecommerce-sales-v1.0.0-analysis.xlsx` cùng thư mục với `app.py`.
 
+## Hướng dẫn sử dụng nhanh
+Trong Dashboard, mở trang **📖 Hướng dẫn sử dụng** (menu bên trái) để xem cách dùng bộ lọc, ý nghĩa từng trang, cách tính số liệu và phần hỏi đáp.
+1. Chọn trang ở menu bên trái.
+2. Chọn bộ lọc ở Sidebar (năm, tháng, quý, ngày, quốc gia, trạng thái, kênh, phân khúc); bấm "Đặt lại bộ lọc" để về mặc định.
+3. KPI, biểu đồ và bảng tự cập nhật; mở mục 📋 để xem bảng và tải CSV.
+
 ## Chạy EDA và tạo ảnh cho báo cáo
 ```bash
 python eda_report.py

@@ -4,7 +4,7 @@ from utils.load_data import load_raw_data
 from utils.clean_data import clean_data, quality_report
 from utils.filters import sidebar_filters
 from pages import (page1_overview, page2_sales_trend, page3_country_analysis,
-                   page4_order_analysis, page5_customer_channel)
+                   page4_order_analysis, page5_customer_channel, page6_guide)
 
 st.set_page_config(page_title="E-commerce Dashboard", page_icon="🛒", layout="wide")
 
@@ -17,6 +17,7 @@ except Exception as e:  # hiển thị lỗi thân thiện
 
 df = sidebar_filters(df_all)  # bộ lọc dùng chung cho mọi Page
 
+st.sidebar.info("📖 Mới dùng lần đầu? Mở trang **Hướng dẫn sử dụng** ở menu trên.")
 with st.sidebar.expander("🧪 Chất lượng dữ liệu"):
     st.json(quality_report(raw))
     st.caption("Chỉ kiểm tra, không xóa dữ liệu. Tiền tệ không được xác định trong dữ liệu.")
@@ -27,6 +28,7 @@ pages = [
     ("Theo quốc gia", "🌍", page3_country_analysis.render, "country"),
     ("Giá trị & cơ cấu đơn hàng", "🧾", page4_order_analysis.render, "orders"),
     ("Khách hàng & kênh", "🎯", page5_customer_channel.render, "customer"),
+    ("Hướng dẫn sử dụng", "📖", page6_guide.render, "guide"),
 ]
 nav = st.navigation([st.Page(lambda fn=fn: fn(df), title=t, icon=i, url_path=u, default=(u == "overview"))
                      for t, i, fn, u in pages])
